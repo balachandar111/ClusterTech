@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {% load static %}
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      
+    <title>Document</title>
+    <style>
+        *{
+            font-family:'poppins',sans-serif;
+        }
+        body{
+            background-color:black;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            font-family: "Kumbh Sans", serif;
+          }
+          
+          .brand-tagline {
+            font-size: 12px;
+            color:rgba(78, 188, 227, 0.6);
+            margin-left: 10px;
+          }
+          
+          .navbar-nav {
+            margin: 0 20px;
+          }
+          
+          .enquire-btn {
+            background-color: #6DC7C1;
+            font-size:18px;
+            border: none;
+            color: white;
+            width: 188px;
+            height: 48px;
+           
+            border-radius: 24px;
+          }
+          
+          .offcanvas-body {
+            background: var(--aq-g, linear-gradient(rgba(78, 188, 227, 0.6),rgba(43, 104, 125, 0.6),rgba(0, 0, 0, 0.3)));
+            backdrop-filter:blur(25px);
+           color: #fff;
+           width:200px;
+           font-family:'poppins'sans-serif;
+           
+         }
+         
+         .offcanvas .nav-link {
+           color: aqua blue;
+           margin-bottom: 10px;
+          
+         }
+        
+        .navbar-toggler {
+          border: none;
+        }
+          
+          @media (max-width: 768px) {
+            .na,
+            .enquire-btn.ms-3 {
+                display: none;
+            }
+            .navbar-toggler {
+                margin-right: -40px;
+            }
+            .navbar-brand {
+                margin-left: -30px;
+            }
+          }
+               
+.sidebar {
+    background-color:rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width:327px;
+    height: 556px;
+    transition: top 0.1s ease-in-out;
+    margin-top:200px;
+   
+    z-index:4;
+  
+  }
+  .sidebar.visible {
+    top: 0; /* Slide into view */
+  }
+  
+  .sidebar a {
+    display: block;
+    color: rgba(78, 188, 227, 1);
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar a:hover {
+    color: #fff;
+  }
+  
+  .sidebar a::after {
+   
+    float: right;
+    margin-left: -60px;
+    color: #6DC7C1;
+  }
+  
+  /* Dynamic Content */
+  .dynamic-content h5 {
+    color: #6DC7C1;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size:20px;
+    font-weight: 400;
+  }
+  
+  .dynamic-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dynamic-content li {
+    margin-bottom: 10px;
+  }
+  
+  .dynamic-content a {
+    text-decoration: none;
+    color: rgba(206, 206, 206, 1);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .dynamic-content a:hover {
+    color: #6DC7C1;
+    text-decoration: underline;
+  }
+  
+  /* Dividers */
+  .divider {
+    border-left: 1px solid #6DC7C1;
+    height: 100%;
+  }
+  .custom-margin{
+    margin-top: -100px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .sidebar {
+        text-align: center;
+    }
+  
+    .sidebar a::after {
+        display: none; /* Hide the '>' arrow in mobile view */
+    }
+  
+    .dynamic-content {
+        flex-direction: column;
+        gap: 20px;
+        height: 800px;
+    }
+  
+    .divider {
+        display: none; /* Hide dividers in mobile view */
+    }
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  .hidden-nav {
+    transform: translateY(-100%);
+  }
+  .nav {
+    backdrop-filter: blur(4px);
+  }
+    </style>
+  </head>
+  <body>
+    
+    <nav id="navbar" class="navbar navbar-expand-lg nav" style="background:transparent;">
+        <div class="container-fluid" style="margin-left: 50px;margin-right:50px;">
+          <div class="navbar-brand">
+            <a href="#">
+              <img src="{% static 'img/clustercup.png' %}" alt="Thrive Tech Logo" style="width:41px; height:39px;margin-right:10px;">
+            </a>
+            <div>
+              <div style="color: white; font-family: Kumbh Sans, serif;font-weight:700;font-size:18px;letter-spacing:12%;margin-left:25px;">CLUSTER TECH</div>
+              <div class="brand-tagline" style="margin-left: 15px;">Innovation meets collaboration</div>
+            </div>
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav">
+            <span><img src="{%static 'img/burger.png'%}" style="height:30px;" alt="Hamburger Icon"></span>
+          </button>
+          
+          <div class="na">
+            <div class="navbar-nav justify-content-space-around" style="background-color:rgba(78, 188, 227, 0.2);border-radius:24px;width:640px;height:48px;">
+              <ul class="navbar-nav" style="margin-top:-6px;">
+                <li class="nav-item" style="margin-right: 40px;">
+                  <a class="nav-link" href="#" onclick="showMain()" style="color: white;margin-right:1px;margin-left:60px;font-size:16px;">What we Do
+                    <img src="{%static 'img/downarrow.png'%}" alt="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: white;font-size:16px;margin-left:40px;" href="">Who we are</a>
+                </li>
+                <li class="nav-item" style="margin-left: 100px;">
+                  <a class="nav-link" style="color: white;font-size:16px;" href="">Careers</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="enquire-btn ms-3">
+            <a href="#enquire" style="color: white;text-decoration:none">
+              <button style="background: var(--aq-g, linear-gradient(rgba(78, 188, 227, 0.6),rgba(43, 104, 125, 0.6)));" class="enquire-btn">Enquire</button>
+            </a>
+          </div>
+        </div>
+      </nav>
+    
+
+
+    <div class="offcanvas-body offcanvas offcanvas-end"  tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel" style="width:320px;">
+      <button type="button" class="btn-close btn-close-white" style="margin-left: 260px;" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  
+      <!-- Main Menu -->
+      <ul class="navbar-nav" style="font-size: 20px;"id="mainMenu">
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 25px;font-family:'poppins'sans-serif;" href="#" id="whatWeDoBtn">What we Do
+                  <img src="{%static 'img/downarrow.png'%}" style="margin-left: 40px;" alt="">
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 25px;" href="">Who we are</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 25px;" href="">Careers</a>
+          </li>
+          <a href="home.html#enquire" style="color: white;text-decoration:none"><button style="background: var(--aq-g, linear-gradient(rgba(78, 188, 227, 0.6),rgba(43, 104, 125, 0.6)));"  class="enquire-btn">Enquire</button></a>
+  
+      </ul>
+      
+      <!-- What We Do Menu -->
+      <ul class="navbar-nav d-none" style="font-size: 20px;" id="whatWeDoMenu">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="backBtn" style="height: 40px; width: 40px;">
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#" style="font-size: 20px;" id="atlassianSupportBtn">Atlassian Support <img src="{%static 'img/downarrow.png'%}" style="margin-left: 25px;" alt=""></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 20px;" href="#" id="uxUiBtn">UX/UI Designing <img src="{%static 'img/downarrow.png'%}" style="margin-left: 43px;" alt=""></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 20px;" href="#" id="webBtn">Website developing<img src="{%static 'img/downarrow.png'%}" style="margin-left: 10px;"></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" style="font-size: 20px;"  id="forgeDevBtn" href="#">Forge Developing <img src="{%static 'img/downarrow.png'%}" style="margin-left: 27px;"></a>
+          </li>
+         
+      </ul>
+      
+      <!-- Atlassian Support Sub-Menu -->
+      <ul class="navbar-nav d-none" style="font-size: 20px;" id="atlassianSupportMenu">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="backToWhatWeDoBtn" style="height: 40px; width: 40px;">
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="" id="migrationBtn">Migration </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="" id="helpdeskServicesBtn">Helpdesk Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="" id="customerSupportBtn">Customer Support</a>
+        </li>
+      </ul>
+      
+      <!-- Migration Sub-Menu -->
+    
+  <!-- UX/UI Sub-Menu -->
+  <ul class="navbar-nav d-none"style="font-size: 20px;" id="uxUiMenu">
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="backToWhatWeDoFromUxUiBtn" style="height: 40px; width: 40px;">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href=""id="uxServicesBtn">User Experience (UX) Services</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href=""id="uiDesignBtn">User Interface (UI) Design</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="designEnhancementBtn">Design Enhancement & Support</a>
+    </li>
+  </ul>
+  <!-- User Experience (UX) Services Sub-Menu -->
+  
+  <!-- Web Sub-Menu -->
+  <ul class="navbar-nav d-none"style="font-size: 20px;" id="webMenu">
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="backToWhatWeDoFromWebBtn" style="height: 40px; width: 40px;">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="frontendBtn">Frontend & User Interaction</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="backendBtn">Backend & Data Management</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="maintenanceBtn">Maintenance & Custom Solutions</a>
+    </li>
+  </ul>
+  
+      <!-- Forge Dev Sub-Menu -->
+  <ul class="navbar-nav d-none"style="font-size: 20px;" id="forgeDevMenu">
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="backToWhatWeDoFromForgeBtn" style="height: 40px; width: 40px;">
+        <i class="fas fa-arrow-left"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="customAppDevBtn">Custom App Development & Deployment</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="integrationAtlassianBtn">Integration with Atlassian Ecosystem</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" id="secureForgeHostingBtn">Secure and Scalable Forge<br> Hosting</a>
+    </li>
+  </ul>
+  
+      
+    </div>
+    <div class="main"style="display: none;background: var(--aq-g, linear-gradient(rgba(78, 188, 227, 0.6),rgba(43, 104, 125, 0.6)));height:556px;width:1487px;margin-top:90px;padding-top:25px;margin-left:25px;border-radius:20px;"id="mainContent">
+        <div class="container-fluid mt-4"  >
+            <div class="row" style="margin-top:-52px;" >
+                <!-- Sidebar -->
+                <div class="col-md-3 mt-1  w-10 sidebar custom-margin"  >
+                    <a href="#" onclick="showAtlassianSupport()"style="padding-top:100px;" class="link" >Atlassian Support <img src="{%static 'img/Vector.png'%}"style="float: right;
+        margin-left: -60px;
+        color: rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:20px;" alt=""></a>
+                    <a href="#" onclick="showAtlassianSupportui()" class="link">UX/UI Designing<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:20px;" alt=""></a>
+                    <a href="#" onclick="showAtlassianSupportweb()" class="link">Website Developing<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:20px;" alt=""></a>
+                    <a href="#" onclick="showAtlassianSupportforge()" class="link">Forge Developing<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:20px;" alt=""></a>
+                </div>
+      
+                <!-- Dynamic Content -->
+                <div class="col-md-9">
+                    <div id="dynamicContent" style="margin-top: 120px;margin-right:80px;" class="dynamic-content d-flex justify-content-between"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+      <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("navbar");
+    
+        window.addEventListener("scroll", function () {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+          if (scrollTop > lastScrollTop) {
+            // Scroll Down
+            navbar.classList.add("hidden-nav");
+          } else {
+            // Scroll Up
+            navbar.classList.remove("hidden-nav");
+          }
+    
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+      </script>
+
+      <script>
+        let lastClicked = null;
+      
+        // Select all the link elements
+        const links = document.querySelectorAll('.link');
+      
+        // Add a click event listener to each link
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Prevent the default action (e.g., navigation)
+                event.preventDefault();
+      
+                // If there is a previously clicked link, reset its color
+                if (lastClicked && lastClicked !== link) {
+                    lastClicked.style.color = ''; // Reset the color of the previous link
+                }
+      
+                // Change the color of the clicked link
+                link.style.color = 'white'; // Set the new color (you can change this color)
+      
+                // Update the last clicked link
+                lastClicked = link;
+            });
+        });
+      
+        function showMain() {
+          const mainContent = document.getElementById('mainContent');
+          
+          if (mainContent.style.display === 'none' || !mainContent.style.display) {
+            mainContent.style.display = 'block';
+            showAtlassianSupport();
+          } else {
+            mainContent.style.display = 'none';
+          }
+        }
+        
+        // Event listener to close 'mainContent' when clicking outside of it
+        document.addEventListener('click', function(event) {
+          const mainContent = document.getElementById('mainContent');
+          const navbar = document.querySelector('nav'); // Navbar element
+          if (!mainContent.contains(event.target) && !navbar.contains(event.target)) {
+            mainContent.style.display = 'none';
+          }
+        });
+      
+      
+     
+      
+      
+        function showAtlassianSupport() {
+            const content = `
+                  <div style="margin-left:10px;">
+                    <h5 ><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">Migration<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-left:210px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Jira Migration Assistant</a></li>
+                        <li><a href="">Confluence Migration Assistant</a></li>
+                        <li><a href="">Configuration & Workflow Migration</a></li>
+                        <li><a href="">Repository & CI/CD Migration</a></li>
+                        <li><a href="">Custom Data & App Migration</a></li>
+                        <li><a href="">Incident & Issue Management</a></li>
+                    </ul>
+                </div>
+               <div style="border-left: 3px solid white;margin-left:-10px; width:10%;"></div>
+                <div style="margin-left:-120px;">
+                    <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">Helpdesk Services<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:-80px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Incident Tracking & Resolution</a></li>
+                        <li><a href="">On-Call Management</a></li>
+                        <li><a href="">Post – Incident Review</a></li>
+                        <li><a href="">Root Cause Analysis</a></li>
+                        <li><a href="">Service Level Agreements (SLAs)</a></li>
+                        <li><a href="">Change Request Management</a></li>
+                    </ul>
+                </div>
+                <div style="border-left: 3px solid white;margin-left:60px; width: 10%;"></div>
+                <div style="margin-left:-120px;">
+                    <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">Customer Support<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-left:70px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Pre - Sales Support</a></li>
+                        <li><a href="">Order & Purchase Support</a></li>
+                        <li><a href="">Post - Sales Support</a></li>
+                        <li><a href="">Customer Relationship Management</a></li>
+                        <li><a href="">Multichannel Support</a></li>
+                    </ul>
+                </div>
+            `;
+            document.getElementById('dynamicContent').innerHTML = content;
+        }
+      
+        function showAtlassianSupportweb() {
+            const content = `
+                <div style="margin-left:10px;margin-right:-80px">
+                    <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">Frontend & User Interaction<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:-50px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Responsive Frontend Development</a></li>
+                        <li><a href="">Interactive UI Development</a></li>
+                        <li><a href="">SEO Optimization</a></li>
+                    </ul>
+                </div>
+               <div style="border-left: 3px solid white;margin-left:136px;margin-right:20px; width:10%;"></div>
+                <div style="margin-left:-117px;">
+                    <h5><a href="" style="color: rgba(78, 188, 227, 1);text-decoration:none;">Backend & Data Management<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:-30px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Server-Side Development</a></li>
+                        <li><a href="">Database Integration</a></li>
+                        <li><a href="">API Development</a></li>
+                       
+                    </ul>
+                </div>
+                <div style="border-left: 3px solid white;margin-right:10px;margin-left:30px;width: 1%;"></div>
+                <div style="margin-left:-20px;">
+                    <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">Maintenance & Custom <br/> Solutions<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-top:-20px;margin-right:-10px;" alt=""></a></h5>
+                    <ul>
+                        <li><a href="">Website Maintenance & Updates</a></li>
+                        <li><a href="">CMS Integration & Customization</a></li>
+                        <li><a href="">Custom Web Application Development</a></li>
+                        
+                    </ul>
+                </div>
+            `;
+            document.getElementById('dynamicContent').innerHTML = content;
+        }
+        function showAtlassianSupportui() {
+          const content = `
+                <div style="margin-left:10px;">
+                  <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">User Experience (UX)<br/> Services<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:-20px;margin-right:-60px;" alt=""></a></h5>
+                  <ul>
+                      <li><a href="">User Research & Persona Creation</a></li>
+                      <li><a href="">Usability Testing</a></li>
+                      <li><a href="">Accessibility Design</a></li>
+                    
+                  </ul>
+              </div>
+             <div style="border-left: 3px solid white;margin-left:50px;width:10%;"></div>
+              <div style="margin-left:-110px;">
+                  <h5><a href="" style="color:rgba(78, 188, 227, 1);text-decoration:none;">User Interface (UI) Design<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color:rgba(78, 188, 227, 1);height:13px;margin-top:5px;margin-right:-90px;" alt=""></a></h5>
+                  <ul>
+                      <li><a href="">Wireframing & Prototyping</a></li>
+                      <li><a href="">Visual Design & Branding</a></li>
+                      <li><a href="">Interaction Design</a></li>
+                    
+                  </ul>
+              </div>
+              <div style="border-left: 3px solid white;margin-left:80px; width: 10%;"></div>
+              <div style="margin-left:-110px;">
+                  <h5><a href="" style="color: rgba(78, 188, 227, 1);text-decoration:none;">Design Enhancement &<br/>Support<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-top:-20px;margin-right:-40px;" alt=""></a></h5>
+                  <ul>
+                      <li><a href="">Design System Creation</a></li>
+                      <li><a href="">UI Optimization for Performance</a></li>
+                      <li><a href="">Ongoing Design Consultation</a></li>
+            
+              </div>
+          `;
+          document.getElementById('dynamicContent').innerHTML = content;
+      }
+      function showAtlassianSupportforge() {
+        const content = `
+              <div style="margin-left:10px;">
+                <h5><a href="" style="color: rgba(78, 188, 227, 1);text-decoration:none;">Custom App Development & Deployment<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-right:-60px;margin-top:-20px;" alt=""></a></h5>
+                <ul>
+                    <li><a href="">Tailored Apps for Specific Use Casest</a></li>
+                    <li><a href="">Simplified App Deployment Process</a></li>
+                    <li><a href="">Enhancing User Workflows with Forge Apps</a></li>
+                    <li><a href="">Performance-Optimized and Scalable Solutions</a></li>
+              
+                </ul>
+            </div>
+           <div style="border-left: 3px solid white;margin-left:80px;margin-right:-20px;width:10%;"></div>
+            <div style="margin-left:-40px;">
+                <h5><a href="" style="color: rgba(78, 188, 227, 1);text-decoration:none;">Integration with Atlassian Ecosystem<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-right:-50px;margin-top:-20px;" alt=""></a></h5>
+                <ul>
+                    <li><a href="">Seamless Integration with Jira and Confluence</a></li>
+                    <li><a href="">Enabling Cross-Platform Functionality</a></li>
+                    <li><a href="">Boosting Team Collaboration</a></li>
+                    <li><a href="">APIs and Webhooks for Extended Features</a></li>
+                   
+                </ul>
+            </div>
+            <div style="border-left: 3px solid white;margin-left:60px;margin-right:20px; width: 10%;"></div>
+            <div style="margin-left:-80px;" >
+                <h5><a href="" style="color: rgba(78, 188, 227, 1);text-decoration:none;">Secure and Scalable Forge Hosting<img src="{%static 'img/Vector.png'%}"style="float: right;
+                      margin-left: -60px;
+                      color: rgba(78, 188, 227, 1);height:13px;margin-right:-60px;margin-top:-20px;" alt=""></a></h5>
+                <ul>
+                    <li><a href="">Built-In Security for Your Apps</a></li>
+                    <li><a href="">Scalable Hosting on Forge Infrastructure</a></li>
+                    <li><a href="">Scalable Hosting on Forge Infrastructure</a></li>
+                    <li><a href="">Real-Time Monitoring and Issue Resolution</a></li>
+        
+                </ul>
+            </div>
+        `;
+        document.getElementById('dynamicContent').innerHTML = content;
+      }
+      
+      
+</script>
+  
+  <script>
+  
+    
+    // Event delegation for handling menu navigation
+   document.getElementById('whatWeDoBtn').addEventListener('click', function() {
+     document.getElementById('mainMenu').classList.add('d-none');
+     document.getElementById('whatWeDoMenu').classList.remove('d-none');
+   });
+   
+   document.getElementById('backBtn').addEventListener('click', function() {
+     document.getElementById('whatWeDoMenu').classList.add('d-none');
+     document.getElementById('mainMenu').classList.remove('d-none');
+   });
+   
+   document.getElementById('atlassianSupportBtn').addEventListener('click', function() {
+     document.getElementById('whatWeDoMenu').classList.add('d-none');
+     document.getElementById('atlassianSupportMenu').classList.remove('d-none');
+   });
+   
+   document.getElementById('backToWhatWeDoBtn').addEventListener('click', function() {
+     document.getElementById('atlassianSupportMenu').classList.add('d-none');
+     document.getElementById('whatWeDoMenu').classList.remove('d-none');
+   });
+   
+
+ 
+   
+   // Event listener to go back to the Atlassian Support Menu from the Helpdesk Services Menu
+ 
+   document.getElementById('uxUiBtn').addEventListener('click', function () {
+     document.getElementById('whatWeDoMenu').classList.add('d-none');
+     document.getElementById('uxUiMenu').classList.remove('d-none');
+   });
+   
+   // Event listener to go back to the What We Do Menu from the UX/UI Menu
+   document.getElementById('backToWhatWeDoFromUxUiBtn').addEventListener('click', function () {
+     document.getElementById('uxUiMenu').classList.add('d-none');
+     document.getElementById('whatWeDoMenu').classList.remove('d-none');
+   });
+   // Event listeners for UX/UI Menu sub-menus
+   
+   // UX Services
+ 
+   
+   
+   // Event listeners for Web Menu
+   document.getElementById('webBtn').addEventListener('click', function () {
+     document.getElementById('whatWeDoMenu').classList.add('d-none');
+     document.getElementById('webMenu').classList.remove('d-none');
+   });
+   
+   document.getElementById('backToWhatWeDoFromWebBtn').addEventListener('click', function () {
+     document.getElementById('webMenu').classList.add('d-none');
+     document.getElementById('whatWeDoMenu').classList.remove('d-none');
+   });
+  
+   // Event listeners for Forge Dev Sub-Menu
+   document.getElementById('forgeDevBtn').addEventListener('click', function () {
+     document.getElementById('whatWeDoMenu').classList.add('d-none');
+     document.getElementById('forgeDevMenu').classList.remove('d-none');
+   });
+   
+   document.getElementById('backToWhatWeDoFromForgeBtn').addEventListener('click', function () {
+     document.getElementById('forgeDevMenu').classList.add('d-none');
+     document.getElementById('whatWeDoMenu').classList.remove('d-none');
+   });
+   // Navigation for Forge Dev Sub-Menus
+   
+  
+   
+   
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

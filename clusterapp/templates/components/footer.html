@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+        }
+        
+        .footer {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        
+          margin-top:200px;
+          margin-left:30px;
+        }
+        .footer-content {
+          display: flex;
+          width: 90%;
+         
+          gap: 20px;
+          margin-right: 100px;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 40px 100px;
+          justify-content: start;
+          margin-left: 180px;
+          margin-top: 50px;
+          font: 16px Poppins, sans-serif;
+        }
+        .company-section {
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          width: 99px;
+          margin: auto 0;
+        }
+        .section-title {
+          color: rgba(78, 188, 227, 0.7);
+          font-weight: 500;
+          font-size: 16px;
+        }
+        .nav-list {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          color: rgba(255, 255, 255, 0.6);
+          font-weight: 400;
+        }
+        .nav-item {
+          margin-top: 10px;
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.6);
+        }
+        .services-section {
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          width: 186px;
+          margin: auto 0;
+          margin-left: -20px;
+        }
+        .social-section {
+          align-self: start;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          margin-top: 47px;
+          margin-right: 100px;
+        }
+        .social-title {
+          color: var(--blue-og, rgba(78, 188, 227, 0.7));
+          font: 500 18px Poppins, sans-serif;
+        }
+        .social-icons {
+          display: flex;
+          margin-top: 20px;
+          min-height: 30px;
+          width: 100%;
+          align-items: start;
+          gap: 20px;
+          justify-content: center;
+        }
+        .social-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 30px;
+        }
+        .divider {
+         
+          min-height: 1px;
+          margin-top: 59px;
+          margin-left: 150px;
+          width: 1139px;
+          border: 1px solid rgba(247, 247, 247, 1);
+        }
+        .footer-links {
+          align-self: center;
+          display: flex;
+          margin-top: 40px;
+          align-items: center;
+          gap: 40px;
+          color: rgba(255, 255, 255, 0.6);
+          justify-content: start;
+          font: 300 16px Poppins, sans-serif;
+        }
+        .footer-link {
+          align-self: stretch;
+          margin: auto 0;
+          text-decoration: none;
+          margin-bottom: 30px;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile View */
+        @media (max-width: 991px) {
+          .footer-content {
+            max-width: 100%;
+            margin-right: 9px;
+            margin-top: 50px;
+          }
+          .nav-links {
+            margin-left: 0;
+            justify-content: center;
+            gap: 20px;
+          }
+          .company-section, .services-section {
+            width: 90%;
+            text-align: center;
+            margin-top: 20px;
+            margin-left:10px;
+            font-size:12px;
+          }
+          .divider {
+            max-width: 50%;
+            margin-top: 40px;
+            margin-left: 20px;
+          }
+          .social-section {
+            margin-right: 0;
+            text-align: center;
+          }
+          .footer-links {
+            max-width: 80%;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            font-size:12px;
+          }
+        }
+
+        /* Mobile Small View */
+        @media (max-width: 490px) {
+          .footer-content {
+            padding: 0 10px;
+          }
+          .nav-links {
+            gap: 20px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+          }
+          .social-icons {
+            gap: 15px;
+          }
+          .footer-links {
+            gap: 10px;
+          }
+        }
+
+       
+    </style>
+</head>
+<body>
+    
+<div class="footer">
+    <div class="footer-content">
+      <div class="nav-links">
+        <div class="company-section">
+          <div class="section-title">Company</div>
+          <nav class="nav-list">
+            <a href="#" class="nav-item">What we do</a>
+            <a href="#" class="nav-item">Who we are</a>
+            <a href="#" class="nav-item">Careers</a>
+          </nav>
+        </div>
+        <div class="services-section">
+          <div class="section-title">Services</div>
+          <nav class="nav-list">
+            <a href="#" class="nav-item">Atlassian Support</a>
+            <a href="#" class="nav-item">Website Development</a>
+            <a href="#" class="nav-item">UI/UX Designing</a>
+          </nav>
+        </div>
+      </div>
+      <div class="social-section">
+        <div class="social-title">Follow us</div>
+        <div class="social-icons">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/24ccb9c0aaa340ad93860c1c7d861fdc/979aeeec0c18572423776e895d3098ebbacee7b014fe6d8aa6cd1ae5e4659f1f?apiKey=24ccb9c0aaa340ad93860c1c7d861fdc&" class="social-icon" alt="Social media icon" />
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/24ccb9c0aaa340ad93860c1c7d861fdc/1c9299124214b7e4382cf421341e7ad5c6c8b5235d2fd06ba9500e9066c1689d?apiKey=24ccb9c0aaa340ad93860c1c7d861fdc&" class="social-icon" alt="Social media icon" />
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Terms and Condition</a>
+      <a href="#" class="footer-link">Privacy Policy</a>
+      <a href="#" class="footer-link">Cookies Policy</a>
+    </div>
+  </div>
+    
+</body>
+</html>
