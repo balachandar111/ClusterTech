@@ -11,6 +11,311 @@
     <link href="{% static "css\home.css" %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
     <title>Document</title>
+    <style>
+     
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        color: #fff;
+        padding-left: 20%;
+        padding-right: -100px;
+        background-color: rgba(78, 188, 227, 0.3);
+        border-radius: 10px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .t1 {
+        grid-column: span 2;
+        text-align: center;
+        font-size: 34px;
+        margin-left:-50px;
+        
+    }
+
+    .t1 span {
+        color:rgba(78, 188, 227, 1);
+    }
+
+    .p1 {
+        grid-column: span 2;
+        text-align: center;
+        font-size: 15px;
+        color: #ccc;
+        margin-left:-50px;
+       
+    }
+
+    .p1 a {
+        color:rgba(78, 188, 227, 1);
+        text-decoration: none;
+    }
+    .li{
+      width:500px;
+      margin-left:80px;
+    }
+    .re{
+      width:234%;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+        text-align: start;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px 5px;
+        margin-bottom: 20px;
+        border: none;
+        border-bottom: 1px solid #F7F7F7;
+        background-color: transparent;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-bottom: 2px solid #00bfa6;
+    }
+
+    textarea {
+        resize: none;
+        height: 50px;
+    }
+   
+
+    .submit-btn {
+        grid-column: span 2;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-left: 560px;
+        background: var(--aq-g, linear-gradient(153deg,rgba(78, 188, 227, 1),rgba(60, 146, 176, 1),rgba(60, 145, 175, 1),rgba(43, 104, 125, 1)));
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        height:50px;
+        width: 173px;
+    }
+
+    .submit-btn:hover {
+        background-color: #009e89;
+    }
+
+    /* Mobile view adjustments */
+    @media only screen and (max-width: 768px) {
+        .container {
+            display: block;
+            padding: 20px;
+            margin-left: 10px;
+            margin-top: 100px;
+        }
+
+        .li{
+         
+            
+            width:300px;
+            margin-left:-1px;
+        }
+       
+
+        .t1 {
+            font-size: 28px;
+            margin-right: -5%;
+            margin-left: 0;
+            position: relative;
+            margin-bottom: 100px;
+            margin-left: 40px;
+            right: 40px;
+        }
+
+        .p1 {
+            position: relative;
+            bottom: 70px;
+            margin-left: -10px;
+        }
+
+        label {
+            font-size: 12px;
+           
+        }
+
+        input, textarea {
+            width: 100%;
+        }
+        .re{
+          width:130%;
+        }
+        .submit-btn {
+            width: 100%;
+            margin-left: 0;
+            padding: 15px;
+            font-size: 18px;
+        }
+    }
+    </style>
+   
+    <style>
+   
+      .why-choose-us {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        
+        font-family: "Poppins", sans-serif;
+        background-color: #121212; /* Main background color */
+        color: #ffffff;
+      }
+  
+      .text-section {
+        max-width: 50%;
+      }
+  
+      .text-section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+  
+      .text-section h2 span {
+        color: #58c4c6;
+      }
+  
+      .text-section p {
+        line-height: 1.8;
+        margin-bottom: 20px;
+        width:520px;
+       
+        height:108px;
+        color:rgba(247, 247, 247, 0.6);
+      }
+  
+      .text-section hr {
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        margin: 20px 0;
+        width:32vw;
+      }
+  
+      .text-section .client-satisfaction {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+  
+      .cta-button1 {
+        padding: 10px 20px;
+        background-color: #58c4c6;
+        color: #121212;
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+  
+      .cta-button:hover {
+        background-color: #46a3a4;
+      }
+  
+      .person-image {
+        width: 735px;
+        height:538px;
+        border: none; /* Remove any borders */
+        background: none; /* Ensure no background is applied */
+        margin: 0; /* Reset margin */
+        padding: 0; /* Reset padding */
+        display: block; /* Remove inline spacing */
+        transition: transform 0.3s ease; /* Smooth scaling */
+      }
+  
+      .person-image:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+      }
+  
+      .image-section {
+        margin: 0;
+        padding: 0;
+        margin-left:-110px;
+        background: none;
+        display: inline-block;
+      }
+  
+      /* Media Queries */
+      /* Tablet View: 768px and smaller */
+      @media (max-width: 768px) {
+        .why-choose-us {
+          flex-direction: column; /* Stack items vertically */
+          text-align: center;
+        }
+  
+        .text-section {
+          max-width: 100%;
+          margin-bottom: 30px; /* Add spacing below text */
+        }
+  
+        .text-section h2 {
+          font-size: 1.8rem;
+        }
+  
+        .text-section p {
+          font-size: 1rem;
+        }
+  
+        .cta-button {
+          font-size: 0.9rem;
+        }
+  
+        .person-image {
+          width: 250px; /* Reduce image size */
+        }
+      }
+  
+      /* Mobile View: 480px and smaller */
+      @media (max-width: 480px) {
+        .why-choose-us {
+          flex-direction: column; /* Stack items vertically */
+        }
+  
+        .image-section {
+          order: -1; /* Place the image first */
+          margin-bottom: 20px; /* Add margin at the bottom of the image */
+        }
+  
+        .text-section {
+          max-width: 100%;
+          text-align: center;
+        }
+  
+        .text-section h2 {
+          font-size: 1.5rem;
+        }
+  
+        .text-section p {
+          font-size: 0.9rem;
+        }
+  
+        .cta-button {
+          font-size: 0.8rem;
+          padding: 8px 16px;
+        }
+  
+        .person-image {
+          width: 200px; /* Further reduce image size */
+        }
+      }
+    </style>
  <style>
    .main{
     background-color:rgba(17, 17, 17, 1);
@@ -82,10 +387,10 @@
     min-height: 58px;
     width: 335px;
     max-width: 100%;
-    color:var(--aqua-blue, #6dc7c1);
+    color:rgba(78, 188, 227, 1);
     padding: 0 10px;
-    background: transparent;
-    border: 2px solid var(--aq-g, #6dc7c1);
+    background: rgba(29, 43, 49, 0.6);
+    border: 2px solid rgba(78, 188, 227, 1);
     font: 400 24px/58px 'Poppins', sans-serif;
   }
   .hero-image1, .hero-image2 {
@@ -442,7 +747,7 @@
         <h1 class="hero-title1">Digital
           <span style="color: #4EBCE3; margin-left: 10px;">Transformation</span>
         </h1>
-        <a href="#enquire" style="color: var(--aqua-blue, #6dc7c1); text-decoration: none;">
+        <a href="#enquire" style=" color:rgba(78, 188, 227, 1); text-decoration: none;">
           <button class="cta-button" style="cursor: pointer;" tabindex="0">Return information</button>
         </a>
         <img src="{%static "img/Property 1=Default.png"%}" alt="img1" class="hero-image1" loading="lazy" />
@@ -503,10 +808,83 @@
     
   </div>
 </div>
+<div class="why-choose-us">
+  <div class="text-section">
+    <h2>Why Choose <span>Us</span></h2>
+    <p>At Cluster Tech, We Combine Innovation, Expertise,<br/>And Customer Focus To Deliver Tailored Solutions<br/> That Drive Your Success</p>
+    <hr>
+    <p class="client-satisfaction">97% Client satisfaction</p>
+    <button class="cta-button1">Discover Our Expertise</button>
+  </div>
+  <div class="image-section">
+    <img src="{% static "img/Group 25.png" %}" alt="Person pointing" class="person-image" id="dynamicImage">
+  </div>
+</div>
 
-  
+<form method="POST" style="width: 100%;" action="{% url 'home' %}" id="contact-form">
+  {% csrf_token %}
+  <div class="container" id="enquire">
+      <h1 class="t1">Connect with <span>Us</span></h1>
+      <p class="p1">Unlock your potential with Cluster’s next-gen  <br> <span style="color: #6dc7c1"><a href="#">Digital transformation</a></span></p>
+
+      <div class="li">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="li">
+          <label for="company-name">Company Name</label>
+          <input type="text" id="company-name" name="company-name" required>
+      </div>
+
+      <div class="li">
+          <label for="email">Company Email</label>
+          <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="li">
+          <label for="mobile">Company Mobile</label>
+          <input type="tel" id="mobile" name="mobile" required>
+      </div>
+
+      <div class="li">
+          <label for="team-size">Company Size (Team size)</label>
+          <input type="number" id="team-size" name="team-size" required>
+      </div>
+
+      <div class="li">
+          <label for="products">Products</label>
+          <input type="text" id="products" name="products" required>
+      </div>
+
+      <div class="li">
+        <div class="re">
+          <label for="requirements">Please Describe your requirements</label>
+          <textarea id="requirements" name="requirements"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+  </div>
+</form>
+
+
+
 
 {% include "components/footer.html" %}
+<script>
+  const image = document.getElementById('dynamicImage');
+
+  // Change the image on mouse enter
+  image.addEventListener('mouseenter', () => {
+    image.src = "{% static "img/Group 25.png" %}"; // Replace with your hover image path
+  });
+
+  // Revert the image on mouse leave
+  image.addEventListener('mouseleave', () => {
+    image.src = "{% static "img/Group 24.png" %}"; // Replace with your original image path
+  });
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const heroImage1 = document.querySelector(".hero-image1");
