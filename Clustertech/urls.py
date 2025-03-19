@@ -22,4 +22,14 @@ from clusterapp import views
 urlpatterns = [
     path("admin/", admin.site.urls),
       path('',views.home,name='home'),
+      path('whoweare/',views.whoweare,name='whoweare'),
+      path('migration/',views.migration,name='migration'),
+      path('helpdesk/',views.helpdesk,name='helpdesk'),
+      path('customersupport/',views.customersupport,name='customersupport'),
+      path('uiux/',views.uiux,name='uiux'),
+      path('webdev/',views.web,name='web'),
+       path('forge/',views.forge,name='forge'),
+       path('career/',views.career,name='career'),
+       path('form/',views.form,name='form'),
+
 ]

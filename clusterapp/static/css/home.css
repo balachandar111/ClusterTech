@@ -3,11 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+   
 }
 
 .card1 {
   font-family: 'Arial', sans-serif;
-  background-color:rgba(17, 17, 17, 1);
+  background-color:#111111;
   color: #fff;
   display: flex;
   justify-content: center;

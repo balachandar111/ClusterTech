@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      
+
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      font-family: 'poppins',sans-serif;
+    }
+.migration-section {
+  background: #111111;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+}
+
+.hero-section {
+  display: flex;
+  margin-top: 90px;
+  align-items: center;
+  gap: 20px;
+  text-transform: capitalize;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: -50px;
+  
+  font: 400 20px/32px Poppins, sans-serif;
+}
+
+.hero-image {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 600px;
+  min-width: 240px;
+}
+
+.hero-content {
+  display: flex;
+
+  flex-direction: column;
+  width: 520px;
+}
+
+.hero-title {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 2;
+  background: var(--aq-g, linear-gradient(153deg, #6dc7c1 0%, #519490 79.02%, #35615e 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  color: var(--Our-white7, #f7f7f7);
+  margin-top: 20px;
+}
+
+.services-grid {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1220px;
+  display: flex;
+  margin-left: 50px;
+  gap: 20px;
+}
+.service-card1 {
+  border-radius: 4px;
+  border: 1px solid var(--aq-g, #6dc7c1);
+  padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+  width: 560px;height:620px;
+  
+}
+
+.service-card2 {
+  border-radius: 4px;
+  border: 1px solid var(--aq-g, #6dc7c1);
+  padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+  width: 560px;height:290px;
+  
+}
+
+.service-card3 {
+  border-radius: 4px;
+  padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+  width: 560px;height:290px;
+  
+}
+.service-card4 {
+  border-radius: 4px;
+  border: 1px solid var(--aq-g, #6dc7c1);
+  padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+   width: 560px;height:620px;
+  
+}
+.service-card5 {
+  border-radius: 4px;
+ 
+  padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+width: 560px;height:290px;
+  
+}
+.service-card {
+  border-radius: 4px;
+ width: 560px;height:298px;
+padding: 17px;
+  color: var(--Our-white7, #f7f7f7);
+  font-family: poppins,sans-serif;
+  
+}
+@media (max-width:449px){
+
+  .service-card1{
+    width: 350px;
+    height:577px;
+    margin-left: 20px;
+    
+  }
+  .service-card2{
+    width: 350px;
+    height:387px;
+    margin-left: 20px;
+    
+  }
+  .service-card3{
+    width: 350px;
+    height:357px;
+    margin-left: 20px;
+  }
+  .service-card4{
+    width: 350px;
+    height:657px;
+    margin-left: 20px;
+  }
+  .service-card5{
+    width: 350px;
+    height:387px;
+    margin-left: 20px;
+  }
+  .service-card{
+    width: 350px;
+    height:447px;
+    margin-left: 20px;
+   
+  }
+}
+.service-image {
+  aspect-ratio: 1.8;
+  object-fit: contain;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.service-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 20px 0;
+}
+
+.service-description {
+  font-size: 20px;
+   line-height: 34px;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 490px) {
+  
+  .top-navigation {
+    padding: 0 20px;
+  }
+  
+  .hero-section {
+    margin-top: 40px;
+  }
+  
+  .hero-image,
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .services-grid {
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  
+ 
+}
+@media (max-width:490px){
+  .hero-image{
+    height: 400px;
+    width: 400px;
+    margin-left: 40px;
+   
+  }
+  .hero-title{
+    width: 700px;
+    margin-left:  110px;
+    font-size: 25px;
+   
+  }
+  .hero-description{
+    width:350px;
+    height: 400px;
+    margin-left:110px;
+    
+  
+  }
+  .service-description,.hero-description{
+    font-size: 15px;
+    
+  }
+  .footer-links{
+    font-size: 10px;margin-bottom:20px;
+  }
+
+
+}
+ .learn-more-link {
+    display: flex;
+    margin-top: 20px;
+    width: 144px;
+    max-width: 100%;
+    align-items: center;
+    gap: -20px;
+    color: var(--our-white, #f7f7f7);
+    line-height: var(--Line-height-text-md, 24px);
+    justify-content: start;
+    text-decoration: none;
+    padding: 2px;
+  }
+  .learn-more-text {
+    align-self: stretch;
+    width: 138px;
+    margin: auto 0;
+  }
+  .learn-more-icon {
+    aspect-ratio: 1.8;
+    object-fit: contain;
+    object-position: center;
+    width: 18px;
+    fill: var(--blue-og, #4ebce3);
+    align-self: stretch;
+    margin: auto 0;
+  }
+  @media (max-width:449px){
+    .learn-more-link{
+      position: relative;
+      bottom: 200px;
+      left:130px;
+      margin-bottom: -110px;
+    }
+  }
+</style>
+    
+</head>
+<body style="background-color: #111111;">
+ 
+
+ {% include "components/nav.html" %}
+
+
+<div class="migration-section">
+
+  <section class="hero-section">
+    <img src="{%static 'img/uiuximg1.png'%}" alt="helpdesk" class="hero-image" />
+    <div class="hero-content">
+      <h1 class="hero-title"style="font-family:'poppins',sans-serif;" >UI/UX Designing Overview</h1>
+      
+      <p class="hero-description"style="font-family:'poppins',sans-serif;" >
+        At Cluster Tech, we craft intuitive digital experiences that blend creativity and functionality. From seamless interfaces to engaging user journeys, we ensure every design reflects your vision while balancing aesthetics and performance.</p>
+       <a href="{%url 'helpdesk'%}#grid" class="learn-more-link" tabindex="0">
+    <span class="learn-more-text">Learn more</span>
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/24ccb9c0aaa340ad93860c1c7d861fdc/cbf1ef7b2389494254ecb67fafd67a8ee0038bebdf96309f0f039f3ee2490dbe?apiKey=24ccb9c0aaa340ad93860c1c7d861fdc&"
+      class="learn-more-icon"
+      alt=""
+    />
+  </a>
+      </div>
+   
+  </section>
+
+  <div class="services-grid" style="margin-bottom: -150px;" id="grid">
+    <div class="services-row">
+      <div class="service-card1">
+        <img src="{%static 'img/uiuximg2.png'%}" alt="help Solutions Overview" class="service-image" />
+        <h2 class="service-title">Wireframing & Prototyping</h2>
+        <p class="service-description">
+          Transform ideas into reality with interactive prototypes and wireframes. We map every interaction, refine workflows, and perfect designs to ensure a seamless transition from concept to implementation, saving time and delivering a polished final product. </p>
+      </div>
+      
+      <div class="service-card" style="margin-top: 9px; background: linear-gradient(153deg, rgba(109, 198, 193, 0.3) 0%, rgba(81, 147, 143, 0.3) 79%, rgba(53, 96, 93, 0.3) 100%);">
+        <h2 class="service-title">Interaction Design & Animation</h2>
+        <p class="service-description">
+          Boost engagement with intuitive interactions and sleek animations. We craft smooth transitions and micro-interactions that enhance user experience and keep audiences engaged.</p>
+      </div>
+      <div class="service-card2"style="margin-top: 9px;">
+        <h2 class="service-title">Usability Testing & Optimization</h2>
+        <p class="service-description">
+          Refine your product with usability testing and data-driven improvements. We identify obstacles, gather feedback, and optimize for better functionality and user satisfaction.</p>
+      </div>
+    </div>
+
+    <div class="services-row">
+      <div class="service-card3"style="margin-bottom: 15px; background: linear-gradient(153deg, rgba(109, 198, 193, 0.3) 0%, rgba(81, 147, 143, 0.3) 79%, rgba(53, 96, 93, 0.3) 100%);">
+        <h2 class="service-title">User Research & Insights</h2>
+        <p class="service-description">
+          Gain deeper audience insights with data-driven research. We analyze behaviors, preferences, and pain points to create designs that align with user needs, ensuring trust and engagement at every touchpoint.</p>
+      </div>
+
+      <div class="service-card4">
+        <img src="{%static 'img/uiuximg3.png'%}" alt="post- Migration Process" class="service-image" />
+        <h2 class="service-title">UI Design & Visual Identity</h2>
+        <p class="service-description">
+          Create visually striking designs that captivate users and reflect your brand. Our UI experts craft responsive, pixel-perfect interfaces that blend creativity with usability, ensuring seamless experiences across all devices.</p>
+      </div>
+      <div class="service-card5" style="margin-top: 10px;margin-bottom:200px; background: linear-gradient(153deg, rgba(109, 198, 193, 0.3) 0%, rgba(81, 147, 143, 0.3) 79%, rgba(53, 96, 93, 0.3) 100%);">
+        <h2 class="service-title">Design Systems & Guidelines</h2>
+        <p class="service-description">
+          Ensure 24/7 customer support with our dedicated team, ready to resolve issues and answer queries swiftly. We minimize downtime, maximize satisfaction, and provide seamless, proactive assistance to keep your customers feeling valued.</p>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+
+
+</div>
+{% include "components/footer.html" %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

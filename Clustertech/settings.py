@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -27,8 +27,8 @@ SECRET_KEY = "django-insecure-7$@#r3blz%b&4)bbmv78$+@3^5szab0#0jg-bw927659vs0uo2
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+MONGO_URI=os.getenv('ab45')
+MONGO_DB_NAME = os.getenv('cd45')
 # Application definition
 
 INSTALLED_APPS = [
@@ -113,6 +113,13 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')# Replace with your email
 
 
 # Static files (CSS, JavaScript, Images)

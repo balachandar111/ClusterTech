@@ -18,6 +18,7 @@
           display: flex;
           flex-direction: column;
           overflow: hidden;
+          
         
           margin-top:200px;
           margin-left:30px;
@@ -101,7 +102,7 @@
           object-position: center;
           width: 30px;
         }
-        .divider {
+        .divider1 {
          
           min-height: 1px;
           margin-top: 59px;
@@ -146,10 +147,11 @@
             margin-left:10px;
             font-size:12px;
           }
-          .divider {
-            max-width: 50%;
+          .divider1 {
+            max-width: 80%;
             margin-top: 40px;
             margin-left: 20px;
+        
           }
           .social-section {
             margin-right: 0;
@@ -169,6 +171,10 @@
           .footer-content {
             padding: 0 10px;
           }
+          .divider1{
+            color:white;
+           
+          }
           .nav-links {
             gap: 20px;
             flex-direction: column;
@@ -182,7 +188,12 @@
             gap: 10px;
           }
         }
+ @media only screen and (min-width: 1200px) {
+  .divider1{
+    width: 80%;
+  }
 
+ }
        
     </style>
 </head>
@@ -194,17 +205,17 @@
         <div class="company-section">
           <div class="section-title">Company</div>
           <nav class="nav-list">
-            <a href="#" class="nav-item">What we do</a>
-            <a href="#" class="nav-item">Who we are</a>
+            <a href="{%url "home"%}" class="nav-item">What we do</a>
+            <a href="{%url "whoweare"%}" class="nav-item">Who we are</a>
             <a href="#" class="nav-item">Careers</a>
           </nav>
         </div>
         <div class="services-section">
           <div class="section-title">Services</div>
           <nav class="nav-list">
-            <a href="#" class="nav-item">Atlassian Support</a>
-            <a href="#" class="nav-item">Website Development</a>
-            <a href="#" class="nav-item">UI/UX Designing</a>
+            <a href="{%url 'migration'%}" class="nav-item">Atlassian Support</a>
+            <a href="{%url 'web'%}" class="nav-item">Website Development</a>
+            <a href="{%url 'uiux'%}" class="nav-item">UI/UX Designing</a>
           </nav>
         </div>
       </div>
@@ -216,7 +227,7 @@
         </div>
       </div>
     </div>
-    <div class="divider"></div>
+    <div class="divider1"></div>
     <div class="footer-links">
       <a href="#" class="footer-link">Terms and Condition</a>
       <a href="#" class="footer-link">Privacy Policy</a>
